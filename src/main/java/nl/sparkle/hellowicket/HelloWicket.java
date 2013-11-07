@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.wicket.extensions.markup.html.tabs.AbstractTab;
 import org.apache.wicket.extensions.markup.html.tabs.TabbedPanel;
+import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.panel.Panel;
@@ -19,6 +20,7 @@ public class HelloWicket extends WebPage {
 		add(new TabbedPanel<AbstractTab>("tabs", tabs));
 	}
 
+	// TODO: check clean code rules for how to make this code better 
 	private List<AbstractTab> createTabs() {
 		List<AbstractTab> tabs = new ArrayList<AbstractTab>();
 		AbstractTab tab1 = new AbstractTab(new Model<String>("first tab")) {
@@ -39,9 +41,16 @@ public class HelloWicket extends WebPage {
 			}
 		};
 		
+		AbstractTab tab4 = new AbstractTab(new Model<String>("fourth tab")) {
+			public Panel getPanel(String panelId) {
+				return new TabPanel4(panelId);
+			}
+		};
+		
 		tabs.add(tab1);
 		tabs.add(tab2);
 		tabs.add(tab3);
+		tabs.add(tab4);
 		return tabs;
 	}
 }
