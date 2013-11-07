@@ -1,0 +1,35 @@
+<wicket:panel>
+	<h1>Tab 3 -</h1>
+
+	<div></div>
+
+	<div>
+		<form wicket:id="form">
+			
+			Select site:<br />
+			<select wicket:id="site">
+				<optgroup label="java sites">
+					<option wicket:id="site1" style="color: green;">The ServerSide (tss)</option>
+					<option wicket:id="site2" style="color: red;">JavaLobby(jl)</option>
+				</optgroup>
+				<optgroup label="news sites">
+					<option wicket:id="site3">Slashdot.org (sd)</option>
+					<option wicket:id="site4">BetaNews.com (bn)</option>
+				</optgroup>
+			</select><br /><br />
+			
+			Select multiple options<br />
+			<select
+				wicket:id="choices" multiple="multiple" size="5">
+				<!-- the only trick here is that the wicket id of the option tag is fixed to "option" -->
+				<div wicket:id="manychoices">
+					<option wicket:id="option"></option>
+				</div>
+			</select><br /><br />
+			<input type="submit" value="submit" />
+		</form>
+	</div>
+
+	<div wicket:id="feedback" />
+
+</wicket:panel>
